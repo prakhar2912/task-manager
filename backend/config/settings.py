@@ -115,6 +115,18 @@ CORS_ALLOWED_ORIGINS = [
     if origin.strip()
 ]
 
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in env(
