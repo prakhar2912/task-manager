@@ -1,7 +1,7 @@
 from datetime import timedelta
 import os
 from pathlib import Path
-
+import dj_database_url
 from dotenv import load_dotenv
 
 
@@ -135,4 +135,6 @@ CSRF_TRUSTED_ORIGINS = [
     ).split(",")
     if origin.strip()
 ]
-
+DATABASES["default"] = dj_database_url.parse(
+    f"postgresql://{env('DB_USER')}:{env('DB_PASSWORD')}@{env('DB_HOST')}:{env('DB_PORT')}/{env('DB_NAME')}"
+)
